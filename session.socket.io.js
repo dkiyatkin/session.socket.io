@@ -29,9 +29,10 @@ function SessionSockets(io, sessionStore, cookieParser, key) {
 
   function bind(event, callback, namespace) {
     namespace.on(event, function (socket) {
-      sessionSockets.getSession(socket, function (err, session) {
-        callback(err, socket, session);
-      });
+      // sessionSockets.getSession(socket, function (err, session) {
+      //   callback(err, socket, session);
+      // });
+      callback(socket, sessionSockets.getSession);
     });
   }
 
